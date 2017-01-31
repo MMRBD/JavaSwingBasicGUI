@@ -1,5 +1,6 @@
 package Basic;
 
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,12 +8,15 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Scanner;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import sun.swing.ImageIconUIResource;
 
 public class StudentInputGUI extends javax.swing.JFrame {
 
@@ -36,6 +40,12 @@ public class StudentInputGUI extends javax.swing.JFrame {
         model.addColumn("Gander");
         model.addColumn("Degree");
         model.addColumn("Country");
+
+        //setIconImage(new ImageIcon("C:\\Users\\mokle\\OneDrive\\Documents\\NetBeansProjects\\JavaSwingBasicGUI\\src\\Basic\\imgs\\unnamed.png").getImage());
+        URL iconURL = getClass().getResource("/Basic/imgs/unnamed.png");
+
+        ImageIcon icon = new ImageIcon(iconURL);
+        setIconImage(icon.getImage());
 
     }
 
@@ -431,14 +441,14 @@ public class StudentInputGUI extends javax.swing.JFrame {
                     String line = scan.nextLine();
                     if (line.indexOf(",") > 1) {
                         mArr = line.split(",");
-                        
-                    }else{
+
+                    } else {
                         mArr = line.split("\n");
                     }
                     Object[] data = new Object[mArr.length];
                     for (int i = 0; i < data.length; i++) {
                         data[i] = mArr[i];
-                        
+
                     }
                     model.addRow(data);
                 }
@@ -492,21 +502,21 @@ public class StudentInputGUI extends javax.swing.JFrame {
         countryComboBox.setSelectedIndex(0);
         ganderbuttonGroup.clearSelection();
         showTextArea.setText("");
-        degree="";
+        degree = "";
         for (int i = 0; i < degreePanel.getComponentCount(); i++) {
             JCheckBox box = (JCheckBox) degreePanel.getComponent(i);
-            if(box.isSelected()){
+            if (box.isSelected()) {
                 box.setSelected(false);
             }
-            
+
         }
-        if(showAllTable.getRowCount()>0){
-            for (int i = showAllTable.getRowCount()-1; i > -1; i--) {
+        if (showAllTable.getRowCount() > 0) {
+            for (int i = showAllTable.getRowCount() - 1; i > -1; i--) {
                 model.removeRow(i);
-                
+
             }
         }
-        
+
 
     }//GEN-LAST:event_clearButtonActionPerformed
 
