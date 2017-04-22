@@ -1,7 +1,5 @@
 package Basic;
 
-import java.awt.Image;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +14,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import sun.swing.ImageIconUIResource;
 
 public class StudentInputGUI extends javax.swing.JFrame {
 
